@@ -1,0 +1,5 @@
+#we use java
+language: java
+#we use jdk11
+jdk:
+- openjdk11
