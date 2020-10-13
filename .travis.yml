@@ -3,3 +3,5 @@ language: java
 #we use jdk11
 jdk:
 - openjdk11
+script:
+- ./mvnw clean install
