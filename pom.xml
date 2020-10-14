@@ -60,7 +60,7 @@
 						<version>2.6.0</version>
 						<configuration>
 							<to>
-								<image>docker.io/canisasseke/cicd-applied-to-spring-boot-java-app</image>
+								<image>canisasseke/cicd-applied-to-spring-boot-java-app</image>
 								<tags>
 									<tag>${project.version}</tag>
 									<tag>latest</tag>
