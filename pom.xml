@@ -60,7 +60,7 @@
 						<version>2.6.0</version>
 						<configuration>
 							<from>
-								<image>openjdk:11-jre-slim-sid</image>
+								<image>gcr.io/distroless/java@sha256:8ab7b3078b01ba66b937b7fbe0b9eccf60449cc101c42e99aeefaba0e1781155</image>
 							</from>
 							<to>
 								<image>docker.io/canisasseke/cicd-applied-to-spring-boot-java-app</image>
