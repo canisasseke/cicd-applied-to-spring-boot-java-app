@@ -9,14 +9,9 @@ sudo: required
 services:
   - docker
   
-after_success:
-- docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-- export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
-- export IMAGE_NAME=kaskinas/cicd-applied-to-spring-boot-java-app
-- echo "image_name:$IMAGE_NAME:$COMMIT"
-- docker build -t $IMAGE_NAME:$COMMIT .
-- docker tag $IMAGE_NAME:$COMMIT $IMAGE_NAME:$TAG
-- docker push $IMAGE_NAME
+before_install:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker pull openjdk:11-jre-slim
 script:
-  - ./mvnw clean install -B
+  - ./mvnw clean install 
  
