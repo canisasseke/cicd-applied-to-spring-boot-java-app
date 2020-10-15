@@ -3,7 +3,19 @@ language: java
 #we use jdk11
 jdk:
 - openjdk11
+
+sudo: required
  
+services:
+  - docker
+  
+after_success:
+- docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+- export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
+- export IMAGE_NAME=kaskinas/cicd-applied-to-spring-boot-java-app
+- docker build -t $IMAGE_NAME:$COMMIT .
+- docker tag $IMAGE_NAME:$COMMIT $IMAGE_NAME:$TAG
+- docker push $IMAGE_NAME
 script:
   - ./mvnw clean install -B
  
