@@ -10,8 +10,9 @@ services:
   - docker
   
 before_install:
+  - docker build -t kaskinas/cicd-applied-to-spring-boot-java-app .
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker pull openjdk:11-jre-slim
+  - docker push kaskinas/cicd-applied-to-spring-boot-java-app
 script:
   - ./mvnw clean install 
  
